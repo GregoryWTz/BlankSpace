@@ -9,7 +9,7 @@ const RightPanel = ({
   onTravelToMainMap,
   inventoryItems,
   onUseItem,
-  keysState, // ✅ this is the real-time key tracking ref
+  keysState,
 }) => {
 
   const [inventoryOpen, setInventoryOpen] = useState(false);
@@ -79,7 +79,6 @@ const RightPanel = ({
         </div>
       )}
 
-      {/* Only show building actions when player is near the building */}
       {currentLocation && pendingLocation && pendingLocation.id === currentLocation.id && pendingLocation.building && (
         <>
           <div className="location-header">
