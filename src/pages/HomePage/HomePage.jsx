@@ -5,7 +5,7 @@ import "./HomePage.css";
 export default function HomePage({ name, setName, onStart, selectedShip, setSelectedShip }) {
   
   useEffect(() => {
-    document.title = "Blank Space - Home"; // 👈 Change tab title here
+    document.title = "Blank Space - Home";
   }, []);
 
   return (
