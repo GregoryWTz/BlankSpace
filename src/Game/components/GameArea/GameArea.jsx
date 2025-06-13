@@ -1,4 +1,3 @@
-// GameArea.jsx
 import React, { forwardRef } from 'react';
 import './GameArea.css';
 import { maps } from '../map';
@@ -40,8 +39,8 @@ const GameArea = forwardRef(({ playerPosition, playerRef, currentLocation }, ref
           height: '5vw',
           borderRadius: '50%',
           objectFit: 'cover',
-          transform: `rotate(${playerPosition.rotation || 0}deg)`, // Add rotation
-          transition: 'transform 0.2s ease', // Smooth rotation
+          transform: `rotate(${playerPosition.rotation || 0}deg)`,
+          transition: 'transform 0.2s ease',
         }}
       />
 
