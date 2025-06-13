@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './final.css'; // Make sure this CSS file exists and is styled
+import './final.css';
 
 const FinalBoss = ({ onExit }) => {
   const [playerHealth, setPlayerHealth] = useState(100);
@@ -109,7 +109,6 @@ const FinalBoss = ({ onExit }) => {
     <div className="game-container">
       <h1>Boss Battle</h1>
 
-      {/* Boss Section */}
       <div className={`boss-container ${bossPosition} ${bossAction ? 'action-' + bossAction.name.toLowerCase().replace(' ', '-') : ''}`}>
         <div className="health-bar-container">
           <div 
@@ -132,7 +131,6 @@ const FinalBoss = ({ onExit }) => {
         </ul>
       </div>
 
-      {/* Player Section */}
       <div className={`player-container ${playerPosition} ${playerAction ? 'action-' + playerAction.name.toLowerCase() : ''}`}>
         <div className="health-bar-container">
           <div 
@@ -160,7 +158,6 @@ const FinalBoss = ({ onExit }) => {
         ))}
       </div>
 
-      {/* Exit to Main Game */}
       {isBattleOver && (
         <button
           className="reset-btn"
@@ -170,7 +167,6 @@ const FinalBoss = ({ onExit }) => {
         </button>
       )}
 
-      {/* Turn Indicator */}
       <div className={`turn-indicator ${isPlayerTurn ? 'player-turn' : 'boss-turn'}`}>
         {isBattleOver ? 'Battle Over' : isPlayerTurn ? 'Your Turn' : 'Boss Turn'}
       </div>
