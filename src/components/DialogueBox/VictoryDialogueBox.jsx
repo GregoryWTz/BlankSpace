@@ -85,15 +85,13 @@ export default function VictoryDialogueBox({ playerName, onFinish }) {
         <div className="credits-screen">
           <div className="credits-content">
             <h1>Black Space</h1>
-            <p>Directed by: The Universe</p>
-            <p>Game Design: Nicho DT</p>
-            <p>Programming: YOU</p>
-            <p>Story & Dialogue: GPT + Nicho</p>
-            <p>Art: Pixel World Assets</p>
-            <p>Music: Space Dreams OST</p>
+            <p>Directed by: Gregorius William Tanuwijaya</p>
+            <p>Game Design: Daniel Kurnia Gunawan</p>
+            <p>Programming: Nicholas Dharma Tan</p>
+            <p>Story & Dialogue: Gregorius William Tanuwijaya</p>
+            <p>Art: Daniel Kurnia Gunawan</p>
             <p>Special Thanks: All Players</p>
             <p>Thank you for playing!</p>
-            <p className="end-message">THE END</p>
           </div>
         </div>
       )}
