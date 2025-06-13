@@ -7,16 +7,16 @@ import Game from "./Game/Game";
 export default function App() {
   const [name, setName] = useState("");
   const [selectedShip, setSelectedShip] = useState(null);
-  const [phase, setPhase] = useState("home"); // 'home' | 'dialogue' | 'game' | 'victoryDialogue'
+  const [phase, setPhase] = useState("home");
 
   const handleNameChange = (newName) => {
     setName(newName);
-    localStorage.setItem("playerName", newName); // Save to localStorage for TopBar
+    localStorage.setItem("playerName", newName);
   };
 
   const handleStart = () => {
     if (name) {
-      localStorage.setItem("playerName", name); // Ensure it's saved
+      localStorage.setItem("playerName", name);
     }
     setPhase("dialogue");
   };
