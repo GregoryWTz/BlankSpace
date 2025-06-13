@@ -1,4 +1,3 @@
-// components/ShipSelector/ShipSelector.jsx
 import React, { useEffect, useState } from "react";
 import "./ShipSelector.css";
 
@@ -12,7 +11,6 @@ export default function ShipSelector({ selectedShip, setSelectedShip }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Update parent state whenever currentIndex changes
     setSelectedShip(ships[currentIndex]);
   }, [currentIndex, setSelectedShip]);
 
