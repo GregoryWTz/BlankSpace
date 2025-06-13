@@ -239,7 +239,6 @@ function Game({ gameName, selectedShip, setPhase }) {
       setCurrency(prev => prev + 500);
       setBarValues(prev => prev.map(val => Math.min(100, val + 50)));
 
-      // ✅ FIXED: Now it transitions to the victory dialogue screen
       setTimeout(() => {
         setShowVictory(false);
         setPhase("victoryDialogue");
