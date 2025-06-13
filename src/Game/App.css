@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #dcdcdc;
+  color: black;
+}
+
+@font-face {
+  font-family: 'Title';
+  src: url('assets/tech.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Makes entire page background black */
+  color: white; /* Optional: ensures text is visible on dark background */
+  font-family: sans-serif; /* Optional: improves default font */
+}
+
+.app {
+  min-height: 100vh;
+  background-color: black; /* Makes your React app container background black */
+  display: flex;
+  flex-direction: column;
+}
+
+#bgImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  height: calc(95vh - 55px);
+}
+
+@media (max-width: 1400px) {
+  .main-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 320px), (max-width: 375px), (max-width: 425px), (max-width: 768px) {
+  body {
+    overflow: auto;
+    height: auto;
+  }
+  
+  .main-wrapper {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+.game-wrapper.blurred {
+  filter: blur(4px);
+  position: relative;
+}
+
+.action-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 10px solid #eee;
+  border-top: 10px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+
+.victory-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.victory-message {
+  color: gold;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  animation: pulse 2s infinite;
+}
+
+.victory-rewards {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-box {
+  background: #000000;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  font-family: sans-serif;
+  font-size: 1.2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1rem auto;
+  border: 4px solid #ccc;
+  border-top: 4px solid #444;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skip-button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #ffcb05;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.skip-button:hover {
+  background-color: #f5b800;
+}

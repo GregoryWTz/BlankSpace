@@ -1,0 +1,306 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); /* or your desired color */
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.game-container {
+  width: 90%;
+  height: 100vh; /* Full viewport height */
+  max-width: 600px;
+  background-color: #16213e;
+  border-radius: 10px;
+  padding: 0.8rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: 0; /* Remove margin to touch top and bottom */
+}
+
+
+h1 {
+  color: #e94560;
+  margin-bottom: 0.8rem;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Character Containers */
+.boss-container,
+.player-container {
+  margin: 0.8rem auto;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.boss-container.forward {
+  transform: translateX(-5%);
+}
+
+.player-container.forward {
+  transform: translateX(5%);
+}
+
+.player-container.back {
+  transform: translateX(-4%);
+}
+
+.character {
+  width: 20vw;
+  max-width: 80px;
+  height: 20vw;
+  max-height: 80px;
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.2s;
+}
+
+.player {
+  background-image: url('assets/Player-img.png');
+}
+
+.boss {
+  background-image: url('assets/Worm.png');
+  height: 28vw;
+  max-height: 100px;
+}
+
+.name-tag {
+  font-weight: bold;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* Health Bars */
+.health-bar-container {
+  width: 70%;
+  max-width: 150px;
+  height: 1rem;
+  background-color: #333;
+  border-radius: 10px;
+  margin: 0.4rem auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.health-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.player-health {
+  background-image: linear-gradient(to right, #4CAF50, #8BC34A);
+}
+
+.boss-health {
+  background-image: linear-gradient(to right, #f44336, #ff5722);
+}
+
+.health-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.action-btn {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-btn.attack {
+  background: linear-gradient(to bottom, #ff5e62, #ff2400);
+}
+
+.action-btn.heal {
+  background: linear-gradient(to bottom, #00b09b, #96c93d);
+}
+
+.action-btn.block {
+  background: linear-gradient(to bottom, #2196F3, #3F51B5);
+}
+
+.action-btn.fireball {
+  background: linear-gradient(to bottom, #ff9966, #ff5e62);
+}
+
+.mana-cost {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-size: 0.7rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 4px;
+  border-radius: 8px;
+}
+
+/* Battle Log */
+.battle-log {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem;
+  height: 20vh;
+  max-height: 100px;
+  overflow-y: auto;
+  margin: 0.8rem 0;
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.battle-log ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.battle-log li {
+  padding: 0.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Turn Indicator */
+.turn-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.player-turn {
+  background-color: #4CAF50;
+  animation: pulse 1.5s infinite;
+}
+
+.boss-turn {
+  background-color: #f44336;
+  animation: pulse 1.5s infinite;
+}
+
+/* Reset Button */
+.reset-btn {
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to bottom, #ff8a00, #e52e71);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reset-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(229, 46, 113, 0.5);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.action-attack {
+  animation: attackAnimation 0.5s;
+}
+
+.action-fireball {
+  animation: fireballAnimation 0.8s;
+}
+
+@keyframes attackAnimation {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fireballAnimation {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; filter: brightness(1.5); }
+  100% { opacity: 1; }
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 500px) {
+  .character {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .health-bar-container {
+    width: 85%;
+    height: 1rem;
+  }
+
+  .battle-log {
+    height: 18vh;
+    max-height: 90px;
+  }
+
+  .reset-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .turn-indicator {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

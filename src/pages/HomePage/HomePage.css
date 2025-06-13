@@ -1,0 +1,119 @@
+/* Reset + base font */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Background container */
+.space-container {
+  background: url('/assets/2125.jpg') no-repeat center center fixed; /* Add 'fixed' */
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  position: fixed; /* Add this to ensure full coverage */
+  top: 0;
+  left: 0;
+}
+
+
+.title-text {
+  font-size: 4rem;
+  color: #ffb900;
+  text-shadow: 2px 2px #333;
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
+  text-align: center;
+  max-width: 90vw;
+  word-break: break-word;
+}
+
+/* Input styling */
+.name-input {
+  width: 80%;
+  max-width: 300px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.start-button {
+  background-color: #ffcc57;
+  color: black;
+  border: 2px solid #222;
+  font-size: 1.3rem;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #ffc107;
+  transform: scale(1.05);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive typography + layout */
+@media (max-width: 1024px) {
+  .title-text {
+    font-size: 3rem;
+  }
+
+  .start-button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-text {
+    font-size: 2.2rem;
+  }
+
+  .start-button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-text {
+    font-size: 1.8rem;
+  }
+
+  .name-input {
+    width: 90%;
+  }
+
+  .start-button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+}

@@ -1,0 +1,89 @@
+.game-area {
+  flex-grow: 1;
+  height: 90%;
+  position: relative;
+  border: 4px solid black;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.circle-img {
+  position: absolute;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#Apple { width: 13vw; height: 13vw; }
+#Butter { width: 16vw; height: 16vw; }
+#Cookie { width: 18vw; height: 18vw; }
+#Donut { width: 8vw; height: 8vw; }
+#Coffee { width: 11vw; height: 11vw; }
+
+#player {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform 0.1s ease-out;
+}
+
+
+.wiggle {
+  animation: wiggle 0.3s infinite;
+}
+
+/* .building {
+  position: absolute;
+  width: 80px; Adjust to your needs 
+  height: auto;
+  z-index: 2;
+  pointer-events: none; Or allow clicks if needed 
+} */
+
+.building {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.building:hover {
+  transform: scale(1.05);
+}
+
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Mobile styles */
+@media (max-width: 1400px) {
+  .game-area {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px), (max-width: 375px), (max-width: 425px), (max-width: 768px) {
+  .game-area {
+    width: 90vw;
+    height: 60vh;
+  }
+  
+  #player {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #Apple, #Butter, #Cookie, #Donut, #Coffee {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}

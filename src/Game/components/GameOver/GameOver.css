@@ -1,0 +1,30 @@
+.game-over {
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: red;
+  color: white;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 4px solid black;
+  border-radius: 10px;
+  z-index: 999;
+}
+
+.restart-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.restart-button:hover {
+  transform: scale(1.05);
+}

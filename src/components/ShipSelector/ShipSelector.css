@@ -1,0 +1,38 @@
+/* components/ShipSelector/ShipSelector.css */
+.ship-selector {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.arrow-button {
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.arrow-button:hover {
+  transform: scale(1.2);
+}
+
+.ship-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ship-image {
+  width: 100px;
+  height: 100px;
+  animation: float 3s ease-in-out infinite;  /* Reuse animation */
+}
+
+.ship-name {
+  font-size: 1.9rem;
+  margin-top: 40px;
+  font-weight: bold;
+}

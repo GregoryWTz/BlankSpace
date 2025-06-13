@@ -1,0 +1,175 @@
+/* Fullscreen container */
+.scene-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: url('/assets/2150.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: opacity 2s ease;
+}
+
+/* Character + dialogue group */
+.dialogue-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Character image */
+.character-image {
+  height: 10rem;
+  width: auto;
+  margin-bottom: 0.2rem;
+  transition: transform 0.1s ease;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: shake 0.3s infinite;
+}
+
+/* Dialogue box */
+.dialogue-box {
+  background-color: white;
+  border: 4px solid black;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 90vw;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Dialogue text */
+.dialogue-text {
+  font-size: 1.25rem;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 1rem;
+  word-break: break-word;
+}
+
+/* Text cursor blink */
+.dialogue-text::after {
+  content: "|";
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Button styling */
+.dialogue-box button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffcc57;
+  border: 2px solid #222;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.dialogue-box button:hover {
+  background-color: #ffc107;
+  transform: scale(1.05);
+}
+
+/* Fade out when dialogue ends */
+.fade-out {
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Credits screen */
+.credits-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  z-index: 9999;
+}
+
+/* Credits scroll animation */
+.credits-content {
+  animation: scrollUp 20s linear forwards;
+  text-align: center;
+  padding-bottom: 100%;
+  font-size: 1.5rem;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-150%);
+  }
+}
+
+.end-message {
+  font-size: 2rem;
+  margin-top: 4rem;
+  font-weight: bold;
+}
+
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .character-image {
+    height: 8rem;
+  }
+
+  .dialogue-text {
+    font-size: 1.1rem;
+  }
+
+  .dialogue-box {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-image {
+    height: 6.5rem;
+  }
+
+  .dialogue-text {
+    font-size: 1rem;
+  }
+
+  .dialogue-box button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+}
